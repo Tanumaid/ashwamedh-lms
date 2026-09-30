@@ -84,7 +84,7 @@
                                 <tr th:each="enrollment : ${enrollments}">
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <img th:src="${enrollment.course.imageUrl}" class="rounded me-3 border border-secondary" style="width: 50px; height: 50px; object-fit: cover;">
+                                            <img th:src="${enrollment.course.imageUrl}" class="rounded me-3 border border-secondary" style="width: 50px; height: 50px; object-fit: contain; background-color: var(--surface);">
                                             <span class="fw-bold" th:text="${enrollment.course.title}">Course Title</span>
                                         </div>
                                     </td>
