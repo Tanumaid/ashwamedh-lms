@@ -98,6 +98,18 @@ public class LmsController {
         
         return "index";
     }
+    @GetMapping("/courses")
+    public String courses(Model model, jakarta.servlet.http.HttpSession session) {
+        List<Course> allCourses = courseRepository.findAll();
+        model.addAttribute("courses", allCourses);
+        
+        com.ashwamedh.lms.model.User user = (com.ashwamedh.lms.model.User) session.getAttribute("loggedInUser");
+        if (user != null) {
+            model.addAttribute("user", user);
+        }
+        
+        return "courses";
+    }
 
     @GetMapping("/course/{id}")
     public String courseDetails(@PathVariable Long id, Model model, jakarta.servlet.http.HttpSession session) {
