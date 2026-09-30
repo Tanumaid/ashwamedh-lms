@@ -25,5 +25,3 @@ services:
         fromDatabase:
           name: ashwamedh-db
           property: password
-      - key: DB_DIALECT
-        value: org.hibernate.dialect.PostgreSQLDialect
