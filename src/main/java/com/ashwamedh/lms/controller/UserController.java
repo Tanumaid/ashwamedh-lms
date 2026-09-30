@@ -28,10 +28,16 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public String loginUser(@RequestParam String email, @RequestParam String password, HttpSession session, Model model) {
+    public String loginUser(@RequestParam String email, @RequestParam String password, HttpSession session, Model model, jakarta.servlet.http.HttpServletResponse response) {
         User user = userRepository.findByEmail(email);
         if (user != null && user.getPassword().equals(password)) {
             session.setAttribute("loggedInUser", user);
+            
+            jakarta.servlet.http.Cookie cookie = new jakarta.servlet.http.Cookie("userEmail", user.getEmail());
+            cookie.setMaxAge(60 * 60 * 24 * 30); // 30 days
+            cookie.setPath("/");
+            response.addCookie(cookie);
+
             String redirectUrl = (String) session.getAttribute("redirectUrl");
             if (redirectUrl != null) {
                 session.removeAttribute("redirectUrl");
@@ -44,8 +50,14 @@ public class UserController {
     }
 
     @GetMapping("/logout")
-    public String logout(HttpSession session) {
+    public String logout(HttpSession session, jakarta.servlet.http.HttpServletResponse response) {
         session.invalidate();
+        
+        jakarta.servlet.http.Cookie cookie = new jakarta.servlet.http.Cookie("userEmail", null);
+        cookie.setMaxAge(0);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+
         return "redirect:/";
     }
 }
