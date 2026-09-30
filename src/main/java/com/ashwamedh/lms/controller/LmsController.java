@@ -97,6 +97,8 @@ public class LmsController {
         }
         
         return "index";
+    }
+
     @GetMapping("/courses")
     public String courses(Model model, jakarta.servlet.http.HttpSession session) {
         List<Course> allCourses = courseRepository.findAll();
