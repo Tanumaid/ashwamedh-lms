@@ -26,6 +26,9 @@ public class QuizController {
     @Autowired
     private com.ashwamedh.lms.repository.TestScoreRepository testScoreRepository;
 
+    @Autowired
+    private com.ashwamedh.lms.repository.EnrollmentRepository enrollmentRepository;
+
     @GetMapping("/course/{id}/test")
     public String takeTest(@PathVariable Long id, Model model, HttpServletRequest request) {
         if (request.getSession().getAttribute("loggedInUser") == null) {
@@ -67,6 +70,14 @@ public class QuizController {
         // Save the test score
         com.ashwamedh.lms.model.TestScore testScore = new com.ashwamedh.lms.model.TestScore(null, user, course, score, questions.size(), java.time.LocalDateTime.now());
         testScoreRepository.save(testScore);
+
+        // Ensure they are enrolled
+        boolean alreadyEnrolled = enrollmentRepository.findByUser(user).stream()
+                .anyMatch(e -> e.getCourse().getId().equals(id));
+        if (!alreadyEnrolled) {
+            com.ashwamedh.lms.model.Enrollment e = new com.ashwamedh.lms.model.Enrollment(null, user, course, java.time.LocalDateTime.now());
+            enrollmentRepository.save(e);
+        }
         
         model.addAttribute("course", course);
         model.addAttribute("score", score);
