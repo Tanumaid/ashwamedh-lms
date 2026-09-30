@@ -82,7 +82,7 @@ public class LmsController {
     }
 
     @GetMapping("/")
-    public String home(Model model) {
+    public String home(Model model, jakarta.servlet.http.HttpSession session) {
         List<Course> allCourses = courseRepository.findAll();
         
         List<Course> sliderCourses = allCourses.stream()
@@ -90,6 +90,12 @@ public class LmsController {
             .toList();
             
         model.addAttribute("sliderCourses", sliderCourses);
+        
+        com.ashwamedh.lms.model.User user = (com.ashwamedh.lms.model.User) session.getAttribute("loggedInUser");
+        if (user != null) {
+            model.addAttribute("user", user);
+        }
+        
         return "index";
     }
 

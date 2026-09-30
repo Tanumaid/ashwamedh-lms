@@ -37,7 +37,7 @@ public class UserController {
                 session.removeAttribute("redirectUrl");
                 return "redirect:" + redirectUrl;
             }
-            return "redirect:/dashboard";
+            return "redirect:/";
         }
         model.addAttribute("error", "Invalid email or password");
         return "login";

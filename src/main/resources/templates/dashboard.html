@@ -16,12 +16,30 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="/">
                 <img src="https://ashwamedhgurukul.org/wp-content/uploads/2026/08/AshwamedhMainLogo-removebg-preview.png" alt="Ashwamedh Logo" class="me-2">
-                <span class="fs-4">Ashwamedh Gurukul</span>
+                <span class="fs-4 fw-bold">Ashwamedh Gurukul</span>
             </a>
-            <div class="d-flex text-white align-items-center ms-auto">
-                <i class="bi bi-person-circle fs-4 me-2" style="color: var(--primary);"></i>
-                <span th:text="${user.name}">Student Name</span>
-                <a href="/logout" class="btn btn-sm btn-outline-custom ms-3">Logout</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link px-3" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="/#courses">Digital Gurukul</a></li>
+                    
+                    <th:block th:if="${session.loggedInUser == null}">
+                        <li class="nav-item ms-lg-3"><a class="btn btn-outline-custom" href="/login">Login</a></li>
+                        <li class="nav-item ms-2"><a class="btn btn-custom" href="/register">Sign Up</a></li>
+                    </th:block>
+                    
+                    <th:block th:if="${session.loggedInUser != null}">
+                        <li class="nav-item d-flex align-items-center ms-lg-3 me-3">
+                            <i class="bi bi-person-circle fs-5 me-2" style="color: var(--primary);"></i>
+                            <span class="fw-bold" style="color: #5c0d12;" th:text="${session.loggedInUser.name}">User Name</span>
+                        </li>
+                        <li class="nav-item"><a class="btn btn-outline-custom" href="/dashboard">Dashboard</a></li>
+                        <li class="nav-item ms-2"><a class="btn btn-danger rounded-pill px-4" href="/logout">Logout</a></li>
+                    </th:block>
+                </ul>
             </div>
         </div>
     </nav>
