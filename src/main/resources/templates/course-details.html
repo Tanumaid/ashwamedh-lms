@@ -62,8 +62,8 @@
 
     <!-- Course Content -->
     <div class="container py-5">
-        <div class="row g-5">
-            <div class="col-lg-8">
+        <div class="row">
+            <div class="col-12">
                 <h3 class="fw-bold mb-4" style="color: var(--primary);">Course Syllabus</h3>
                 
                 <div class="accordion" id="syllabusAccordion">
@@ -94,18 +94,24 @@
                 </div>
             </div>
             
-            <div class="col-lg-4">
-                <div class="card p-4 sticky-top" style="top: 100px;">
-                    <img th:src="${course.imageUrl}" class="img-fluid rounded mb-4 shadow" alt="Course Image">
+        </div>
+        
+        <!-- Horizontal Course Info Banner -->
+        <div class="card mt-5 p-4 shadow-lg border-0" style="background-color: var(--surface); border-radius: 20px;">
+            <div class="row align-items-center g-4">
+                <div class="col-md-4">
+                    <img th:src="${course.imageUrl}" class="img-fluid rounded shadow" alt="Course Image">
+                </div>
+                <div class="col-md-4 text-center text-md-start">
                     <h3 class="fw-bold mb-3 text-white">Free Access</h3>
-                    <p class="text-muted"><i class="bi bi-camera-video" style="color: var(--primary);"></i> 100% Online Delivery</p>
-                    <p class="text-muted"><i class="bi bi-infinity" style="color: var(--primary);"></i> Lifetime Access</p>
-                    <p class="text-muted"><i class="bi bi-patch-check" style="color: var(--primary);"></i> Official Certification</p>
-                    
-                    <a th:href="@{'/enroll/' + ${course.id}}" class="btn btn-custom btn-lg w-100 mb-3 mt-3">Enroll Now</a>
-                    <a th:href="@{'/course/' + ${course.id} + '/test'}" class="btn btn-outline-custom btn-lg w-100 mb-3">Take Course Test</a>
-                    
-                    <small class="text-center d-block text-muted mt-2">Join thousands of students already enrolled!</small>
+                    <p class="text-muted mb-2"><i class="bi bi-camera-video me-2" style="color: var(--primary);"></i> 100% Online Delivery</p>
+                    <p class="text-muted mb-2"><i class="bi bi-infinity me-2" style="color: var(--primary);"></i> Lifetime Access</p>
+                    <p class="text-muted mb-0"><i class="bi bi-patch-check me-2" style="color: var(--primary);"></i> Official Certification</p>
+                </div>
+                <div class="col-md-4">
+                    <a th:href="@{'/enroll/' + ${course.id}}" class="btn btn-custom btn-lg w-100 mb-3 fw-bold shadow-sm" style="background-color: #5c0d12; color: white;">Enroll Now</a>
+                    <a th:href="@{'/course/' + ${course.id} + '/test'}" class="btn btn-outline-custom btn-lg w-100 mb-2 fw-bold">Take Course Test</a>
+                    <small class="text-center d-block text-muted">Join thousands of students already enrolled!</small>
                 </div>
             </div>
         </div>
