@@ -1,0 +1,86 @@
+:root {
+    --primary: #f08c00;
+    --secondary: #e67700;
+    --dark-bg: #121212;
+    --dark-surface: #1e1e1e;
+    --text-light: #f8f9fa;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(18, 18, 18, 0.8) !important;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.navbar-brand img { height: 50px; }
+.nav-link { color: rgba(255,255,255,0.8) !important; transition: 0.3s ease; }
+.nav-link:hover { color: var(--primary) !important; }
+
+/* Buttons */
+.btn-custom {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(240, 140, 0, 0.4);
+    color: #fff;
+}
+.btn-outline-custom {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    border-radius: 50px;
+    padding: 8px 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.btn-outline-custom:hover {
+    background-color: var(--primary);
+    color: #fff;
+}
+
+/* Cards & Surfaces */
+.card {
+    background-color: var(--dark-surface);
+    border: 1px solid rgba(255,255,255,0.05);
+    color: var(--text-light);
+}
+.card-header {
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background-color: rgba(0,0,0,0.2);
+}
+
+/* Forms */
+.form-control {
+    background-color: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+}
+.form-control:focus {
+    background-color: rgba(255,255,255,0.1);
+    border-color: var(--primary);
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(240, 140, 0, 0.25);
+}
+.form-label { color: #aaa; }
+
+/* Tables */
+.table { color: var(--text-light); }
+.table-light { background-color: rgba(255,255,255,0.05); color: #fff; }
+.table-hover tbody tr:hover { color: #fff; }
+.table td, .table th { border-color: rgba(255,255,255,0.05); background-color: transparent;}

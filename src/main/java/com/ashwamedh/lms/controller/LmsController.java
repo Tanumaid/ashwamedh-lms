@@ -21,10 +21,10 @@ public class LmsController {
     @PostConstruct
     public void init() {
         if(courseRepository.count() == 0) {
-            courseRepository.save(new Course(null, "Digital Ashwamedh Gurukul - Basic", "Foundational knowledge covering human values, basic vedic concepts, and core skills for everyday life.", "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80"));
-            courseRepository.save(new Course(null, "Digital Ashwamedh Gurukul - Advanced", "In-depth knowledge of advanced vedic topics, deep meditation techniques, and advanced skill development.", "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=600&q=80"));
-            courseRepository.save(new Course(null, "Kaun Banega Crorepati Dharma Pariksha", "Prepare for the ultimate Dharma test. Interactive quizzes and historical deep dives. Coming soon!", "https://images.unsplash.com/photo-1505664159854-2338ce1f0088?auto=format&fit=crop&w=600&q=80"));
-            courseRepository.save(new Course(null, "Vedic Mathematics", "Learn the ancient techniques of fast mental calculation and logical reasoning.", "https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=600&q=80"));
+            courseRepository.save(new Course(null, "Digital Ashwamedh Gurukul - Basic", "Foundational knowledge covering human values, basic vedic concepts, and core skills for everyday life.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/ChatGPT-Image-Jul-24-2026-03_51_48-PM.png"));
+            courseRepository.save(new Course(null, "Digital Ashwamedh Gurukul - Advanced", "Deep dive into ancient wisdom blended with modern strategic thinking for true leadership.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/ChatGPT-Image-Aug-25-2026-10_00_25-PM-1.png"));
+            courseRepository.save(new Course(null, "Kaun Banega Crorepati Dharma Pariksha", "Test your knowledge of the great epics and win exciting rewards while learning the path of Dharma.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/Mahabharata_-The-Great-Dharma-Trial.png"));
+            courseRepository.save(new Course(null, "Epic Ramayana Mahapariksha", "A comprehensive study and examination of the glorious Ramayana and its eternal values.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/Epic-Ramayana-Mahapariksha-Poster-1.png"));
         }
     }
 
