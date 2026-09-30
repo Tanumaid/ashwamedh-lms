@@ -103,6 +103,7 @@
                     <p class="text-muted"><i class="bi bi-patch-check" style="color: var(--primary);"></i> Official Certification</p>
                     
                     <a th:href="@{'/enroll/' + ${course.id}}" class="btn btn-custom btn-lg w-100 mb-3 mt-3">Enroll Now</a>
+                    <a th:href="@{'/course/' + ${course.id} + '/test'}" class="btn btn-outline-custom btn-lg w-100 mb-3">Take Course Test</a>
                     
                     <small class="text-center d-block text-muted mt-2">Join thousands of students already enrolled!</small>
                 </div>

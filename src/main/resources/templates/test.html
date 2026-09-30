@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Test | Ashwamedh Gurukul</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card p-5 shadow-lg border-0 rounded-4">
+                    <h2 class="mb-2 fw-bold text-center" style="color: var(--primary);">Course Test</h2>
+                    <h4 class="mb-4 text-center text-muted" th:text="${course.title}">Course Title</h4>
+                    
+                    <form th:action="@{'/course/' + ${course.id} + '/test'}" method="post">
+                        <div th:each="question, iterStat : ${questions}" class="mb-5 p-4 border rounded" style="background-color: rgba(0,0,0,0.02);">
+                            <h5 class="fw-bold mb-3" th:text="${iterStat.count + '. ' + question.text}">1. Question text</h5>
+                            
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" th:name="'question_' + ${question.id}" th:id="'q' + ${question.id} + '_A'" value="A" required>
+                                <label class="form-check-label" th:for="'q' + ${question.id} + '_A'" th:text="${question.optionA}">Option A</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" th:name="'question_' + ${question.id}" th:id="'q' + ${question.id} + '_B'" value="B" required>
+                                <label class="form-check-label" th:for="'q' + ${question.id} + '_B'" th:text="${question.optionB}">Option B</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" th:name="'question_' + ${question.id}" th:id="'q' + ${question.id} + '_C'" value="C" required>
+                                <label class="form-check-label" th:for="'q' + ${question.id} + '_C'" th:text="${question.optionC}">Option C</label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" th:name="'question_' + ${question.id}" th:id="'q' + ${question.id} + '_D'" value="D" required>
+                                <label class="form-check-label" th:for="'q' + ${question.id} + '_D'" th:text="${question.optionD}">Option D</label>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-custom btn-lg px-5">Submit Test</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
