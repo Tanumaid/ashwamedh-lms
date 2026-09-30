@@ -97,11 +97,14 @@ public class LmsController {
         }
         
         return "index";
-    }
     @GetMapping("/courses")
     public String courses(Model model, jakarta.servlet.http.HttpSession session) {
         List<Course> allCourses = courseRepository.findAll();
-        model.addAttribute("courses", allCourses);
+        List<Course> filteredCourses = allCourses.stream()
+            .filter(c -> !c.getTitle().contains("Sanatan Vedic"))
+            .toList();
+            
+        model.addAttribute("courses", filteredCourses);
         
         com.ashwamedh.lms.model.User user = (com.ashwamedh.lms.model.User) session.getAttribute("loggedInUser");
         if (user != null) {
