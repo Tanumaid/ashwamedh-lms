@@ -32,6 +32,11 @@ public class UserController {
         User user = userRepository.findByEmail(email);
         if (user != null && user.getPassword().equals(password)) {
             session.setAttribute("loggedInUser", user);
+            String redirectUrl = (String) session.getAttribute("redirectUrl");
+            if (redirectUrl != null) {
+                session.removeAttribute("redirectUrl");
+                return "redirect:" + redirectUrl;
+            }
             return "redirect:/dashboard";
         }
         model.addAttribute("error", "Invalid email or password");

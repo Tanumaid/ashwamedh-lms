@@ -91,7 +91,11 @@ public class LmsController {
     }
 
     @GetMapping("/course/{id}")
-    public String courseDetails(@PathVariable Long id, Model model) {
+    public String courseDetails(@PathVariable Long id, Model model, jakarta.servlet.http.HttpSession session) {
+        if (session.getAttribute("loggedInUser") == null) {
+            session.setAttribute("redirectUrl", "/course/" + id);
+            return "redirect:/login";
+        }
         Course course = courseRepository.findById(id).orElse(null);
         model.addAttribute("course", course);
         return "course-details";
