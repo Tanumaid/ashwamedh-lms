@@ -118,10 +118,10 @@
                                         <div class="progress" style="height: 10px; width: 100px;">
                                             <div class="progress-bar bg-success" role="progressbar" th:style="'width: ' + (${score.score} * 100.0 / ${score.totalQuestions}) + '%'" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
-                                        <small class="text-muted mt-1 d-block" th:text="${#numbers.formatDecimal((score.score * 100.0 / score.totalQuestions), 1, 1)} + '%'">100%</small>
+                                        <small class="text-light mt-1 d-block" th:text="${#numbers.formatDecimal((score.score * 100.0 / score.totalQuestions), 1, 1)} + '%'">100%</small>
                                     </td>
                                     <td>
-                                        <span class="text-muted" th:text="${#temporals.format(score.takenAt, 'dd-MMM-yyyy hh:mm a')}">Date</span>
+                                        <span class="text-light" th:text="${#temporals.format(score.takenAt, 'dd-MMM-yyyy hh:mm a')}">Date</span>
                                     </td>
                                 </tr>
                             </tbody>
