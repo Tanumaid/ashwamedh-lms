@@ -7,72 +7,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
     <style>
-        :root {
-            --primary: #f08c00;
-            --secondary: #e67700;
-            --dark-bg: #121212;
-            --dark-surface: #1e1e1e;
-            --text-light: #f8f9fa;
-        }
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-light);
-            overflow-x: hidden;
-        }
-        h1, h2, h3, .navbar-brand {
-            font-family: 'Playfair Display', serif;
-        }
-        /* Glassmorphism Navbar */
-        .navbar {
-            background: rgba(18, 18, 18, 0.8) !important;
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .navbar-brand img {
-            height: 50px;
-        }
-        .nav-link {
-            color: rgba(255,255,255,0.8) !important;
-            font-weight: 400;
-            transition: 0.3s ease;
-        }
-        .nav-link:hover {
-            color: var(--primary) !important;
-        }
-        .btn-custom {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: #fff;
-            border: none;
-            border-radius: 50px;
-            padding: 10px 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        .btn-custom:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(240, 140, 0, 0.4);
-            color: #fff;
-        }
-        .btn-outline-custom {
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            border-radius: 50px;
-            padding: 8px 25px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        .btn-outline-custom:hover {
-            background-color: var(--primary);
-            color: #fff;
-        }
         /* Hero Section */
         .hero {
             position: relative;
             padding: 120px 0 80px;
-            background: radial-gradient(circle at 80% 20%, rgba(240, 140, 0, 0.15), transparent 50%),
-                        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05), transparent 50%);
+            background: radial-gradient(circle at 80% 20%, rgba(211, 84, 0, 0.08), transparent 50%),
+                        radial-gradient(circle at 20% 80%, rgba(230, 126, 34, 0.05), transparent 50%);
             min-height: 80vh;
             display: flex;
             align-items: center;
@@ -82,13 +24,13 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #fff, #f08c00);
+            background: linear-gradient(45deg, var(--text-main), var(--primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .hero p {
             font-size: 1.25rem;
-            color: #aaa;
+            color: var(--text-muted);
             margin-bottom: 40px;
         }
         .hero-img-wrapper {
@@ -96,9 +38,9 @@
         }
         .hero-img-wrapper img {
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             width: 100%;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
         }
         .glow-circle {
             position: absolute;
@@ -107,7 +49,7 @@
             background: var(--primary);
             border-radius: 50%;
             filter: blur(100px);
-            opacity: 0.3;
+            opacity: 0.15;
             z-index: -1;
             top: 50%;
             left: 50%;
@@ -115,8 +57,8 @@
         }
         /* Course Cards */
         .course-card {
-            background: var(--dark-surface);
-            border: 1px solid rgba(255,255,255,0.05);
+            background: var(--surface);
+            border: 1px solid rgba(0,0,0,0.05);
             border-radius: 20px;
             overflow: hidden;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
@@ -124,8 +66,8 @@
         }
         .course-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(240, 140, 0, 0.2);
-            border-color: rgba(240, 140, 0, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1), 0 0 20px rgba(211, 84, 0, 0.1);
+            border-color: rgba(211, 84, 0, 0.3);
         }
         .course-img-wrapper {
             height: 220px;
@@ -147,11 +89,11 @@
         .course-title {
             font-size: 1.4rem;
             font-weight: 600;
-            color: #fff;
+            color: var(--text-main);
             margin-bottom: 15px;
         }
         .course-desc {
-            color: #aaa;
+            color: var(--text-muted);
             font-size: 0.95rem;
             margin-bottom: 25px;
             display: -webkit-box;
@@ -162,12 +104,12 @@
         /* Vision Section */
         .vision-section {
             padding: 100px 0;
-            background-color: #0a0a0a;
+            background-color: var(--surface);
             position: relative;
         }
         .vision-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.05);
+            background: rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.05);
             padding: 40px;
             border-radius: 20px;
             text-align: center;
@@ -175,8 +117,9 @@
             transition: all 0.3s ease;
         }
         .vision-card:hover {
-            background: rgba(255,255,255,0.05);
+            background: rgba(211, 84, 0, 0.05);
             transform: translateY(-5px);
+            border-color: rgba(211, 84, 0, 0.2);
         }
         .vision-icon {
             font-size: 3rem;
@@ -192,9 +135,9 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="/">
                 <img src="https://ashwamedhgurukul.org/wp-content/uploads/2026/08/AshwamedhMainLogo-removebg-preview.png" alt="Ashwamedh Logo" class="me-2">
-                <span class="fs-4">Ashwamedh Gurukul</span>
+                <span class="fs-4 fw-bold">Ashwamedh Gurukul</span>
             </a>
-            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -229,9 +172,9 @@
                         <a href="#" class="btn btn-outline-custom btn-lg d-flex align-items-center"><i class="bi bi-play-circle me-2"></i> Watch Video</a>
                     </div>
                     <div class="mt-5 d-flex align-items-center gap-4 text-muted">
-                        <div><h4 class="text-white mb-0">1M+</h4><small>Happy Students</small></div>
-                        <div style="width: 1px; height: 40px; background: rgba(255,255,255,0.1);"></div>
-                        <div><h4 class="text-white mb-0">50+</h4><small>Branches Offline</small></div>
+                        <div><h4 class="text-dark mb-0 fw-bold">1M+</h4><small>Happy Students</small></div>
+                        <div style="width: 1px; height: 40px; background: rgba(0,0,0,0.1);"></div>
+                        <div><h4 class="text-dark mb-0 fw-bold">50+</h4><small>Branches Offline</small></div>
                     </div>
                 </div>
                 <div class="col-lg-6 position-relative">
@@ -248,29 +191,29 @@
     <section id="vision" class="vision-section">
         <div class="container">
             <div class="text-center mb-5">
-                <h6 class="text-uppercase" style="color: var(--primary); letter-spacing: 2px;">Our Mission</h6>
-                <h2 class="display-5 fw-bold">Punyabhoomi Abhiyaan</h2>
+                <h6 class="text-uppercase fw-bold" style="color: var(--primary); letter-spacing: 2px;">Our Mission</h6>
+                <h2 class="display-5 fw-bold text-dark">Punyabhoomi Abhiyaan</h2>
                 <p class="text-muted mx-auto mt-3" style="max-width: 600px;">Spreading the divine knowledge of Sanatan Dharma and equipping the youth with modern strategic skills.</p>
             </div>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="vision-card">
                         <i class="bi bi-journal-richtext vision-icon"></i>
-                        <h4 class="text-white mb-3">Ancient Texts</h4>
+                        <h4 class="text-dark mb-3 fw-bold">Ancient Texts</h4>
                         <p class="text-muted mb-0">Deep dive into Vedas, Upanishads, and the glorious Epics of Mahabharata and Ramayana.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="vision-card">
                         <i class="bi bi-cpu vision-icon"></i>
-                        <h4 class="text-white mb-3">Modern Strategy</h4>
+                        <h4 class="text-dark mb-3 fw-bold">Modern Strategy</h4>
                         <p class="text-muted mb-0">Applying ancient principles of Dharma to modern leadership, management, and problem-solving.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="vision-card">
                         <i class="bi bi-globe2 vision-icon"></i>
-                        <h4 class="text-white mb-3">Global Community</h4>
+                        <h4 class="text-dark mb-3 fw-bold">Global Community</h4>
                         <p class="text-muted mb-0">Join a worldwide network of seekers, learners, and leaders dedicated to truth and progress.</p>
                     </div>
                 </div>
@@ -279,14 +222,14 @@
     </section>
 
     <!-- Courses Section -->
-    <section id="courses" style="padding: 100px 0; background: var(--dark-bg);">
+    <section id="courses" style="padding: 100px 0; background: var(--bg-main);">
         <div class="container">
             <div class="d-flex justify-content-between align-items-end mb-5">
                 <div>
-                    <h6 class="text-uppercase" style="color: var(--primary); letter-spacing: 2px;">Digital Gurukul</h6>
-                    <h2 class="display-5 fw-bold">Featured Courses & Parikshas</h2>
+                    <h6 class="text-uppercase fw-bold" style="color: var(--primary); letter-spacing: 2px;">Digital Gurukul</h6>
+                    <h2 class="display-5 fw-bold text-dark">Featured Courses & Parikshas</h2>
                 </div>
-                <a href="#" class="btn btn-outline-light rounded-pill">View All Courses</a>
+                <a href="#" class="btn btn-outline-custom rounded-pill">View All Courses</a>
             </div>
             
             <div class="row g-4">
@@ -295,15 +238,15 @@
                     <div class="course-card">
                         <div class="course-img-wrapper">
                             <img th:src="${course.imageUrl}" alt="Course Image">
-                            <span class="badge bg-primary position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2" style="background-color: var(--primary) !important;">New</span>
+                            <span class="badge position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2 text-white" style="background-color: var(--primary) !important;">New</span>
                         </div>
                         <div class="course-body d-flex flex-column" style="height: calc(100% - 220px);">
                             <h3 class="course-title" th:text="${course.title}">Course Title</h3>
                             <p class="course-desc" th:text="${course.description}">Course Description</p>
                             <div class="mt-auto">
-                                <hr style="border-color: rgba(255,255,255,0.1);">
+                                <hr style="border-color: rgba(0,0,0,0.1);">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <span class="text-white fw-bold"><i class="bi bi-star-fill text-warning me-1"></i> 4.9</span>
+                                    <span class="text-dark fw-bold"><i class="bi bi-star-fill text-warning me-1"></i> 4.9</span>
                                     <a th:href="@{'/course/' + ${course.id}}" class="btn btn-sm btn-outline-custom">View Details <i class="bi bi-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
@@ -315,10 +258,10 @@
     </section>
 
     <!-- Footer -->
-    <footer style="background-color: #000; padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.1);">
+    <footer style="background-color: var(--surface); padding: 60px 0; border-top: 1px solid rgba(0,0,0,0.05);">
         <div class="container text-center">
             <img src="https://ashwamedhgurukul.org/wp-content/uploads/2026/08/AshwamedhMainLogo-removebg-preview.png" alt="Ashwamedh Logo" height="60" class="mb-4">
-            <h4 class="text-white mb-4" style="font-family: 'Playfair Display', serif;">Ashwamedh Gurukul</h4>
+            <h4 class="text-dark mb-4 fw-bold" style="font-family: 'Playfair Display', serif;">Ashwamedh Gurukul</h4>
             <div class="d-flex justify-content-center gap-3 mb-4">
                 <a href="#" class="text-muted"><i class="bi bi-facebook fs-4"></i></a>
                 <a href="#" class="text-muted"><i class="bi bi-instagram fs-4"></i></a>
