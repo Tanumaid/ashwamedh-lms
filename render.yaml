@@ -9,7 +9,7 @@ services:
     name: ashwamedh-lms
     env: docker
     plan: free
-    healthCheckPath: /
+    healthCheckPath: /login
     envVars:
       - key: DB_URL
         fromDatabase:
