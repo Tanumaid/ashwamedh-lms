@@ -23,9 +23,15 @@ public class DataSourceConfig {
 
     @Bean
     public DataSource dataSource() {
-        // Render provides connectionString starting with postgres://, but JDBC needs jdbc:postgresql://
+        // Render provides connectionString starting with postgres://user:pass@host/db
+        // JDBC needs jdbc:postgresql://host/db (credentials are passed separately)
         if (dbUrl.startsWith("postgres://")) {
-            dbUrl = dbUrl.replaceFirst("postgres://", "jdbc:postgresql://");
+            try {
+                java.net.URI uri = new java.net.URI(dbUrl);
+                dbUrl = "jdbc:postgresql://" + uri.getHost() + ":" + (uri.getPort() == -1 ? 5432 : uri.getPort()) + uri.getPath();
+            } catch (Exception e) {
+                dbUrl = dbUrl.replaceFirst("postgres://", "jdbc:postgresql://");
+            }
         }
         
         return DataSourceBuilder.create()
