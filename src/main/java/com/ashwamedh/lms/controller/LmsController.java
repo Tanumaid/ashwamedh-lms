@@ -81,15 +81,12 @@ public class LmsController {
     @GetMapping("/")
     public String home(Model model) {
         List<Course> allCourses = courseRepository.findAll();
-        List<Course> dharmaPariksha = allCourses.stream()
-            .filter(c -> c.getTitle().contains("Rigveda") || c.getTitle().contains("Jain") || c.getTitle().contains("Bauddha"))
-            .toList();
-        List<Course> kbcPariksha = allCourses.stream()
-            .filter(c -> !dharmaPariksha.contains(c))
-            .toList();
         
-        model.addAttribute("dharmaPariksha", dharmaPariksha);
-        model.addAttribute("kbcPariksha", kbcPariksha);
+        List<Course> sliderCourses = allCourses.stream()
+            .filter(c -> !c.getTitle().contains("Sanatan Vedic"))
+            .toList();
+            
+        model.addAttribute("sliderCourses", sliderCourses);
         return "index";
     }
 
