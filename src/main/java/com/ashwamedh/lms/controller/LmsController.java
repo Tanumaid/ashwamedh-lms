@@ -114,6 +114,9 @@ public class LmsController {
     @Autowired
     private com.ashwamedh.lms.repository.EnrollmentRepository enrollmentRepository;
 
+    @Autowired
+    private com.ashwamedh.lms.repository.TestScoreRepository testScoreRepository;
+
     @GetMapping("/dashboard")
     public String dashboard(jakarta.servlet.http.HttpSession session, Model model) {
         com.ashwamedh.lms.model.User user = (com.ashwamedh.lms.model.User) session.getAttribute("loggedInUser");
@@ -121,8 +124,11 @@ public class LmsController {
             return "redirect:/login";
         }
         List<com.ashwamedh.lms.model.Enrollment> enrollments = enrollmentRepository.findByUser(user);
+        List<com.ashwamedh.lms.model.TestScore> testScores = testScoreRepository.findByUserOrderByTakenAtDesc(user);
+        
         model.addAttribute("user", user);
         model.addAttribute("enrollments", enrollments);
+        model.addAttribute("testScores", testScores);
         return "dashboard";
     }
 

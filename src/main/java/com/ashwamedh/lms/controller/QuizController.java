@@ -23,8 +23,15 @@ public class QuizController {
     @Autowired
     private QuestionRepository questionRepository;
 
+    @Autowired
+    private com.ashwamedh.lms.repository.TestScoreRepository testScoreRepository;
+
     @GetMapping("/course/{id}/test")
-    public String takeTest(@PathVariable Long id, Model model) {
+    public String takeTest(@PathVariable Long id, Model model, HttpServletRequest request) {
+        if (request.getSession().getAttribute("loggedInUser") == null) {
+            request.getSession().setAttribute("redirectUrl", "/course/" + id + "/test");
+            return "redirect:/login";
+        }
         Course course = courseRepository.findById(id).orElse(null);
         if (course == null) {
             return "redirect:/";
@@ -37,6 +44,11 @@ public class QuizController {
 
     @PostMapping("/course/{id}/test")
     public String submitTest(@PathVariable Long id, HttpServletRequest request, Model model) {
+        com.ashwamedh.lms.model.User user = (com.ashwamedh.lms.model.User) request.getSession().getAttribute("loggedInUser");
+        if (user == null) {
+            request.getSession().setAttribute("redirectUrl", "/course/" + id + "/test");
+            return "redirect:/login";
+        }
         Course course = courseRepository.findById(id).orElse(null);
         if (course == null) {
             return "redirect:/";
@@ -51,6 +63,10 @@ public class QuizController {
                 score++;
             }
         }
+        
+        // Save the test score
+        com.ashwamedh.lms.model.TestScore testScore = new com.ashwamedh.lms.model.TestScore(null, user, course, score, questions.size(), java.time.LocalDateTime.now());
+        testScoreRepository.save(testScore);
         
         model.addAttribute("course", course);
         model.addAttribute("score", score);

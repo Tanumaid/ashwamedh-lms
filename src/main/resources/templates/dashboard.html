@@ -47,14 +47,15 @@
             
             <!-- Main Content -->
             <div class="col-md-9">
-                <div class="card p-4 mb-4">
+                <!-- Enrolled Courses Card -->
+                <div class="card p-4 mb-4 shadow-sm border-0 bg-dark text-white">
                     <h4 class="mb-4" style="color: var(--primary);">Enrolled Courses</h4>
                     <div th:if="${enrollments.empty}" class="alert alert-info text-center bg-transparent border-info text-info">
                         You have not enrolled in any courses yet. <br><a href="/#courses" class="btn btn-outline-info mt-3">Browse courses</a>
                     </div>
                     <div class="table-responsive" th:unless="${enrollments.empty}">
-                        <table class="table table-hover align-middle">
-                            <thead class="table-light">
+                        <table class="table table-dark table-hover align-middle mb-0">
+                            <thead>
                                 <tr>
                                     <th>Course Name</th>
                                     <th>Enrollment Date</th>
@@ -65,7 +66,7 @@
                                 <tr th:each="enrollment : ${enrollments}">
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <img th:src="${enrollment.course.imageUrl}" class="rounded me-3 border border-secondary" style="width: 60px; height: 60px; object-fit: cover;">
+                                            <img th:src="${enrollment.course.imageUrl}" class="rounded me-3 border border-secondary" style="width: 50px; height: 50px; object-fit: cover;">
                                             <span class="fw-bold" th:text="${enrollment.course.title}">Course Title</span>
                                         </div>
                                     </td>
@@ -73,7 +74,47 @@
                                         <span class="text-muted" th:text="${#temporals.format(enrollment.enrollmentDate, 'dd-MMM-yyyy')}">Date</span>
                                     </td>
                                     <td>
-                                        <a th:href="@{'/course/' + ${enrollment.course.id}}" class="btn btn-sm btn-custom">Go to Course</a>
+                                        <a th:href="@{'/course/' + ${enrollment.course.id}}" class="btn btn-sm btn-outline-light">Go to Course</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Test Scores Card -->
+                <div class="card p-4 shadow-sm border-0 bg-dark text-white">
+                    <h4 class="mb-4" style="color: var(--primary);">Test Results & Progress</h4>
+                    <div th:if="${testScores.empty}" class="alert alert-warning text-center bg-transparent border-warning text-warning">
+                        You have not taken any tests yet. Enroll in a course and take a test to see your progress here!
+                    </div>
+                    <div class="table-responsive" th:unless="${testScores.empty}">
+                        <table class="table table-dark table-hover align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Course Name</th>
+                                    <th>Score</th>
+                                    <th>Percentage</th>
+                                    <th>Date Taken</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="score : ${testScores}">
+                                    <td>
+                                        <span class="fw-bold" th:text="${score.course.title}">Course Title</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-primary fs-6" th:text="${score.score + ' / ' + score.totalQuestions}">Score</span>
+                                    </td>
+                                    <td>
+                                        <!-- Calculate percentage -->
+                                        <div class="progress" style="height: 10px; width: 100px;">
+                                            <div class="progress-bar bg-success" role="progressbar" th:style="'width: ' + (${score.score} * 100.0 / ${score.totalQuestions}) + '%'" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                        <small class="text-muted mt-1 d-block" th:text="${#numbers.formatDecimal((score.score * 100.0 / score.totalQuestions), 1, 1)} + '%'">100%</small>
+                                    </td>
+                                    <td>
+                                        <span class="text-muted" th:text="${#temporals.format(score.takenAt, 'dd-MMM-yyyy hh:mm a')}">Date</span>
                                     </td>
                                 </tr>
                             </tbody>
