@@ -11,10 +11,18 @@ services:
     plan: free
     healthCheckPath: /login
     envVars:
-      - key: DB_URL
+      - key: DB_HOST
         fromDatabase:
           name: ashwamedh-db
-          property: connectionString
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: ashwamedh-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: ashwamedh-db
+          property: database
       - key: DB_DRIVER
         value: org.postgresql.Driver
       - key: DB_USERNAME

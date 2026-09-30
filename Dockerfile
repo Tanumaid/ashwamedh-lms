@@ -12,4 +12,4 @@ WORKDIR /app
 COPY --from=build /app/target/lms-0.0.1-SNAPSHOT.jar app.jar
 ENV PORT=8080
 EXPOSE $PORT
-ENTRYPOINT ["sh", "-c", "java -Xmx256m -jar app.jar --server.port=${PORT}"]
+ENTRYPOINT ["sh", "-c", "java -Xmx256m -jar app.jar --spring.profiles.active=prod --server.port=${PORT}"]
