@@ -118,7 +118,6 @@
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link px-3" href="/">Home</a></li>
                     <li class="nav-item"><a class="nav-link px-3" href="#courses">Digital Gurukul</a></li>
-                    <li class="nav-item"><a class="nav-link px-3" href="#vision">Our Vision</a></li>
                     
                     <th:block th:if="${session.loggedInUser == null}">
                         <li class="nav-item ms-lg-3"><a class="btn btn-outline-custom" href="/login">Login</a></li>
@@ -154,39 +153,7 @@
         </div>
     </section>
 
-    <!-- Vision Section -->
-    <section id="vision" class="vision-section">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h6 class="text-uppercase fw-bold" style="color: var(--primary); letter-spacing: 2px;">Our Mission</h6>
-                <h2 class="display-5 fw-bold text-dark">Punyabhoomi Abhiyaan</h2>
-                <p class="text-muted mx-auto mt-3" style="max-width: 600px;">Spreading the divine knowledge of Sanatan Dharma and equipping the youth with modern strategic skills.</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="vision-card">
-                        <i class="bi bi-journal-richtext vision-icon"></i>
-                        <h4 class="text-dark mb-3 fw-bold">Ancient Texts</h4>
-                        <p class="text-muted mb-0">Deep dive into Vedas, Upanishads, and the glorious Epics of Mahabharata and Ramayana.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="vision-card">
-                        <i class="bi bi-cpu vision-icon"></i>
-                        <h4 class="text-dark mb-3 fw-bold">Modern Strategy</h4>
-                        <p class="text-muted mb-0">Applying ancient principles of Dharma to modern leadership, management, and problem-solving.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="vision-card">
-                        <i class="bi bi-globe2 vision-icon"></i>
-                        <h4 class="text-dark mb-3 fw-bold">Global Community</h4>
-                        <p class="text-muted mb-0">Join a worldwide network of seekers, learners, and leaders dedicated to truth and progress.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Removed Vision Section -->
 
     <!-- Courses Section -->
     <section id="courses" style="padding: 100px 0; background: var(--bg-main);">
@@ -248,12 +215,11 @@
                 <div class="col-lg-3 ps-lg-4">
                     <h4 class="mb-4 fw-bold" style="color: #5c0d12; font-family: 'Playfair Display', serif;">Quick links</h4>
                     <ul class="list-unstyled" style="line-height: 2;">
-                        <li><a href="#" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; Home</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; Guruji's Mission</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; Our Branches</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; Start Basic - Digital Gurukul</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; Start Advanced - Digital Gurukul</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; Questions and Answers</a></li>
+                        <li><a href="/" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; Home</a></li>
+                        <li><a href="#courses" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; All Courses</a></li>
+                        <li><a href="/dashboard" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; My Dashboard</a></li>
+                        <li><a href="/login" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; Student Login</a></li>
+                        <li><a href="/register" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; Register Now</a></li>
                     </ul>
                 </div>
 
