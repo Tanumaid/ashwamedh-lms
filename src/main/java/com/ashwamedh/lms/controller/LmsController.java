@@ -52,16 +52,37 @@ public class LmsController {
         return "register";
     }
 
-    @PostMapping("/login")
-    public String doLogin() {
-        // Mock login - redirects to dashboard
-        return "redirect:/dashboard";
-    }
+    @Autowired
+    private com.ashwamedh.lms.repository.EnrollmentRepository enrollmentRepository;
 
     @GetMapping("/dashboard")
-    public String dashboard(Model model) {
-        List<Course> courses = courseRepository.findAll();
-        model.addAttribute("courses", courses);
+    public String dashboard(jakarta.servlet.http.HttpSession session, Model model) {
+        com.ashwamedh.lms.model.User user = (com.ashwamedh.lms.model.User) session.getAttribute("loggedInUser");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        List<com.ashwamedh.lms.model.Enrollment> enrollments = enrollmentRepository.findByUser(user);
+        model.addAttribute("user", user);
+        model.addAttribute("enrollments", enrollments);
         return "dashboard";
+    }
+
+    @GetMapping("/enroll/{id}")
+    public String enroll(@PathVariable Long id, jakarta.servlet.http.HttpSession session) {
+        com.ashwamedh.lms.model.User user = (com.ashwamedh.lms.model.User) session.getAttribute("loggedInUser");
+        if (user == null) {
+            return "redirect:/login";
+        }
+        Course course = courseRepository.findById(id).orElse(null);
+        if (course != null) {
+            // Check if already enrolled
+            boolean alreadyEnrolled = enrollmentRepository.findByUser(user).stream()
+                    .anyMatch(e -> e.getCourse().getId().equals(id));
+            if (!alreadyEnrolled) {
+                com.ashwamedh.lms.model.Enrollment e = new com.ashwamedh.lms.model.Enrollment(null, user, course, java.time.LocalDateTime.now());
+                enrollmentRepository.save(e);
+            }
+        }
+        return "redirect:/dashboard";
     }
 }

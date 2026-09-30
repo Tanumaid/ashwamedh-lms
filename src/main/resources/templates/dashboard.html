@@ -14,8 +14,8 @@
             <a class="navbar-brand" href="/">Ashwamedh Gurukul Portal</a>
             <div class="d-flex text-white align-items-center">
                 <i class="bi bi-person-circle fs-4 me-2"></i>
-                <span>Student</span>
-                <a href="/" class="btn btn-sm btn-outline-light ms-3">Logout</a>
+                <span th:text="${user.name}">Student Name</span>
+                <a href="/logout" class="btn btn-sm btn-outline-light ms-3">Logout</a>
             </div>
         </div>
     </nav>
@@ -42,32 +42,32 @@
             <!-- Main Content -->
             <div class="col-md-9">
                 <div class="card border-0 shadow-sm p-4 mb-4">
-                    <h4 class="mb-3">Enrolled Courses (Demo)</h4>
-                    <div class="table-responsive">
+                    <h4 class="mb-3">Enrolled Courses</h4>
+                    <div th:if="${enrollments.empty}" class="alert alert-info">
+                        You have not enrolled in any courses yet. <a href="/">Browse courses</a>
+                    </div>
+                    <div class="table-responsive" th:unless="${enrollments.empty}">
                         <table class="table table-hover align-middle">
                             <thead class="table-light">
                                 <tr>
                                     <th>Course Name</th>
-                                    <th>Progress</th>
+                                    <th>Enrollment Date</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr th:each="course, iterStat : ${courses}" th:if="${iterStat.index < 2}">
+                                <tr th:each="enrollment : ${enrollments}">
                                     <td>
                                         <div class="d-flex align-items-center">
-                                            <img th:src="${course.imageUrl}" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
-                                            <span class="fw-bold" th:text="${course.title}">Course Title</span>
+                                            <img th:src="${enrollment.course.imageUrl}" class="rounded me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                            <span class="fw-bold" th:text="${enrollment.course.title}">Course Title</span>
                                         </div>
-                                    </td>
-                                    <td style="width: 30%;">
-                                        <div class="progress" style="height: 10px;">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 45%;"></div>
-                                        </div>
-                                        <small class="text-muted">45% Completed</small>
                                     </td>
                                     <td>
-                                        <button class="btn btn-sm btn-primary">Resume</button>
+                                        <span class="text-muted" th:text="${#temporals.format(enrollment.enrollmentDate, 'dd-MMM-yyyy')}">Date</span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary">Go to Course</button>
                                     </td>
                                 </tr>
                             </tbody>

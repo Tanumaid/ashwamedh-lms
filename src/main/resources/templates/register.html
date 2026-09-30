@@ -19,24 +19,24 @@
             <div class="col-md-6">
                 <div class="card border-0 shadow rounded-4 p-4">
                     <h3 class="text-center mb-4 fw-bold">Create an Account</h3>
-                    <form action="/login" method="post">
+                    <form action="/register" method="post">
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">First Name</label>
-                                <input type="text" class="form-control" required>
+                                <input type="text" name="firstName" class="form-control" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Last Name</label>
-                                <input type="text" class="form-control" required>
+                                <input type="text" name="lastName" class="form-control" required>
                             </div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email address</label>
-                            <input type="email" class="form-control" required>
+                            <input type="email" name="email" class="form-control" required>
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Password</label>
-                            <input type="password" class="form-control" required>
+                            <input type="password" name="password" class="form-control" required>
                         </div>
                         <button type="submit" class="btn btn-primary w-100 py-2" style="background-color:#d35400; border:none;">Register</button>
                     </form>
