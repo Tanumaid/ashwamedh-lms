@@ -13,14 +13,10 @@
         .hero {
             position: relative;
             padding: 120px 0 80px;
-            background: radial-gradient(circle at 80% 20%, rgba(211, 84, 0, 0.08), transparent 50%),
-                        radial-gradient(circle at 20% 80%, rgba(230, 126, 34, 0.05), transparent 50%);
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
+            background: var(--bg-main);
         }
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 20px;
@@ -29,31 +25,9 @@
             -webkit-text-fill-color: transparent;
         }
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
             margin-bottom: 40px;
-        }
-        .hero-img-wrapper {
-            position: relative;
-        }
-        .hero-img-wrapper img {
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            width: 100%;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        .glow-circle {
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: var(--primary);
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.15;
-            z-index: -1;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
         }
         /* Course Cards */
         .course-card {
@@ -160,32 +134,22 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container text-center mb-5 mt-4">
-            <img src="https://ashwamedhgurukul.org/wp-content/uploads/2026/08/unnamed.png" alt="Ashwamedh Banner" class="img-fluid rounded shadow-lg w-100 border border-secondary border-opacity-25" style="max-height: 400px; object-fit: cover;">
+    <!-- Hero Banner Section -->
+    <section class="hero text-center" style="padding-top: 100px;">
+        <div class="container-fluid px-lg-5 mb-5">
+            <img src="/images/Homepage.webp" class="img-fluid w-100 shadow-lg rounded-4" style="border: 2px solid rgba(211, 84, 0, 0.2);" alt="Ashwamedh Gurukul Banner">
         </div>
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0">
-                    <h1>The True Concept <br>of Religion</h1>
-                    <p>Blending Ancient Wisdom with Modern Technology. Join the Punyabhoomi Abhiyaan and embark on a transformative journey towards Dharma, knowledge, and strategic leadership.</p>
-                    <div class="d-flex gap-3">
-                        <a href="#courses" class="btn btn-custom btn-lg">Explore Courses</a>
-                        <a href="#" class="btn btn-outline-custom btn-lg d-flex align-items-center"><i class="bi bi-play-circle me-2"></i> Watch Video</a>
-                    </div>
-                    <div class="mt-5 d-flex align-items-center gap-4 text-muted">
-                        <div><h4 class="text-dark mb-0 fw-bold">1M+</h4><small>Happy Students</small></div>
-                        <div style="width: 1px; height: 40px; background: rgba(0,0,0,0.1);"></div>
-                        <div><h4 class="text-dark mb-0 fw-bold">50+</h4><small>Branches Offline</small></div>
-                    </div>
-                </div>
-                <div class="col-lg-6 position-relative">
-                    <div class="glow-circle"></div>
-                    <div class="hero-img-wrapper">
-                        <img src="https://ashwamedhgurukul.org/wp-content/uploads/2026/08/ChatGPT-Image-Aug-16-2026-04_05_46-PM.png" alt="Ashwamedh Concept">
-                    </div>
-                </div>
+            <h1 class="display-4 fw-bold mb-3" style="color: var(--primary);">The True Concept of Religion</h1>
+            <p class="lead text-muted mx-auto mb-4" style="max-width: 700px;">Blending Ancient Wisdom with Modern Technology. Join the Punyabhoomi Abhiyaan and embark on a transformative journey towards Dharma, knowledge, and strategic leadership.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#courses" class="btn btn-custom btn-lg">Explore Courses</a>
+                <a href="#" class="btn btn-outline-custom btn-lg d-flex align-items-center"><i class="bi bi-play-circle me-2"></i> Watch Video</a>
+            </div>
+            <div class="mt-5 d-flex justify-content-center gap-5 text-muted">
+                <div><h3 class="text-dark mb-0 fw-bold">1M+</h3><small>Happy Students</small></div>
+                <div style="width: 1px; height: 50px; background: rgba(0,0,0,0.1);"></div>
+                <div><h3 class="text-dark mb-0 fw-bold">50+</h3><small>Branches Offline</small></div>
             </div>
         </div>
     </section>
