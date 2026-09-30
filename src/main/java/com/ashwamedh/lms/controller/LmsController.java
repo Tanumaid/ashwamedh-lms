@@ -31,9 +31,9 @@ public class LmsController {
         Course c1 = courseRepository.save(new Course(null, "Mahabharata Pariksha", "Test your knowledge of the great epic Mahabharata.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/Mahabharata_-The-Great-Dharma-Trial.png"));
         Course c2 = courseRepository.save(new Course(null, "Epic Ramayana Mahapariksha", "A comprehensive study and examination of the glorious Ramayana.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/Epic-Ramayana-Mahapariksha-Poster-1.png"));
         Course c3 = courseRepository.save(new Course(null, "Sanatan Vedic Knowledge Quiz", "Mix of Vedas, Upanishads, and Indian philosophy.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/ChatGPT-Image-Aug-25-2026-10_00_25-PM-1.png"));
-        Course c4 = courseRepository.save(new Course(null, "Rigveda Mahapariksha", "Explore the ancient Rigveda, its Mandalas, and divine hymns.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/AshwamedhMainLogo-removebg-preview.png"));
-        Course c5 = courseRepository.save(new Course(null, "Jain Dharma Mahapariksha", "Learn the principles of Ahimsa, Anekantavada, and the Tirthankaras.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/AshwamedhMainLogo-removebg-preview.png"));
-        Course c6 = courseRepository.save(new Course(null, "Bauddha Dharma Mahapariksha", "Understand the Four Noble Truths and the teachings of Gautama Buddha.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/AshwamedhMainLogo-removebg-preview.png"));
+        Course c4 = courseRepository.save(new Course(null, "Rigveda Mahapariksha", "Explore the ancient Rigveda, its Mandalas, and divine hymns.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/ChatGPT-Image-Aug-25-2026-09_47_19-PM-1.png"));
+        Course c5 = courseRepository.save(new Course(null, "Jain Dharma Mahapariksha", "Learn the principles of Ahimsa, Anekantavada, and the Tirthankaras.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/ChatGPT-Image-Aug-25-2026-09_20_45-PM-1.png"));
+        Course c6 = courseRepository.save(new Course(null, "Bauddha Dharma Mahapariksha", "Understand the Four Noble Truths and the teachings of Gautama Buddha.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/ChatGPT-Image-Aug-25-2026-09_31_25-PM-1-1.png"));
 
         // Mahabharata
         questionRepository.save(new Question(c1, "Who was the father of the Pandavas?", "Dhritarashtra", "Pandu", "Shantanu", "Bhishma", "B"));
