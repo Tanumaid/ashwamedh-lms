@@ -126,17 +126,17 @@
                     <li class="nav-item"><a class="nav-link px-3" href="#courses">Digital Gurukul</a></li>
                     
                     <th:block th:if="${session.loggedInUser == null}">
-                        <li class="nav-item ms-lg-3"><a class="btn btn-outline-custom" href="/login">Login</a></li>
-                        <li class="nav-item ms-2"><a class="btn btn-custom" href="/register">Sign Up</a></li>
+                        <li class="nav-item ms-lg-3 mb-2 mb-lg-0"><a class="btn btn-outline-custom w-100" href="/login">Login</a></li>
+                        <li class="nav-item ms-lg-2"><a class="btn btn-custom w-100" href="/register">Sign Up</a></li>
                     </th:block>
                     
                     <th:block th:if="${session.loggedInUser != null}">
-                        <li class="nav-item d-flex align-items-center ms-lg-3 me-3">
+                        <li class="nav-item d-flex align-items-center ms-lg-3 me-3 mb-2 mb-lg-0">
                             <i class="bi bi-person-circle fs-5 me-2" style="color: var(--primary);"></i>
                             <span class="fw-bold" style="color: #5c0d12;" th:text="${session.loggedInUser.name}">User Name</span>
                         </li>
-                        <li class="nav-item"><a class="btn btn-outline-custom" href="/dashboard">Dashboard</a></li>
-                        <li class="nav-item ms-2"><a class="btn btn-danger rounded-pill px-4" href="/logout">Logout</a></li>
+                        <li class="nav-item mb-2 mb-lg-0"><a class="btn btn-outline-custom w-100" href="/dashboard">Dashboard</a></li>
+                        <li class="nav-item ms-lg-2"><a class="btn btn-danger rounded-pill px-4 w-100" href="/logout">Logout</a></li>
                     </th:block>
                 </ul>
             </div>
