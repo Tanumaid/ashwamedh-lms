@@ -25,6 +25,9 @@ public class LmsController {
 
     @PostConstruct
     public void init() {
+        if (courseRepository.count() > 0) {
+            return;
+        }
         questionRepository.deleteAll();
         courseRepository.deleteAll();
 
