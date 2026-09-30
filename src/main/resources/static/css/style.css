@@ -1,10 +1,10 @@
 :root {
     --primary: #d35400;
     --secondary: #e67e22;
-    --bg-main: #fdfbf7; /* Warm off-white */
+    --bg-main: #fdf2e3; /* Ancient warm beige / parchment */
     --surface: #ffffff;
-    --text-main: #333333;
-    --text-muted: #6c757d;
+    --text-main: #4a3f35; /* Earthy dark brown */
+    --text-muted: #8c7b6b;
 }
 
 body {
@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6, .navbar-brand {
 
 /* Navbar */
 .navbar {
-    background: rgba(253, 251, 247, 0.9) !important;
+    background: rgba(253, 242, 227, 0.95) !important;
     backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(0,0,0,0.05);
 }
