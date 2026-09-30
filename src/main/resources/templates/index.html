@@ -155,33 +155,57 @@
 
     <!-- Removed Vision Section -->
 
-    <!-- Courses Section -->
-    <section id="courses" style="padding: 100px 0; background: var(--bg-main);">
+    <!-- Courses Section 1: Dharm Ki Maha Pariksha -->
+    <section id="dharma-pariksha" style="padding: 80px 0; background: var(--bg-main);">
         <div class="container">
-            <div class="d-flex justify-content-between align-items-end mb-5">
-                <div>
-                    <h6 class="text-uppercase fw-bold" style="color: var(--primary); letter-spacing: 2px;">Digital Gurukul</h6>
-                    <h2 class="display-5 fw-bold text-dark">Featured Courses & Parikshas</h2>
-                </div>
-                <a href="#" class="btn btn-outline-custom rounded-pill">View All Courses</a>
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold" style="color: #5c0d12;">Dharm Ki Maha Pariksha (Coming soon)</h2>
             </div>
             
-            <div class="row g-4">
-                <!-- Iterate over courses -->
-                <div class="col-lg-3 col-md-6" th:each="course : ${courses}">
-                    <div class="course-card">
+            <div class="row justify-content-center g-4">
+                <!-- Iterate over dharmaPariksha courses -->
+                <div class="col-lg-4 col-md-6" th:each="course : ${dharmaPariksha}">
+                    <div class="course-card shadow-sm border-0">
                         <div class="course-img-wrapper">
                             <img th:src="${course.imageUrl}" alt="Course Image">
-                            <span class="badge position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2 text-white" style="background-color: var(--primary) !important;">New</span>
                         </div>
-                        <div class="course-body d-flex flex-column" style="height: calc(100% - 220px);">
-                            <h3 class="course-title" th:text="${course.title}">Course Title</h3>
+                        <div class="course-body d-flex flex-column" style="background-color: var(--surface); height: calc(100% - 220px);">
+                            <h3 class="course-title" style="color: #5c0d12;" th:text="${course.title}">Course Title</h3>
                             <p class="course-desc" th:text="${course.description}">Course Description</p>
                             <div class="mt-auto">
                                 <hr style="border-color: rgba(0,0,0,0.1);">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="text-dark fw-bold"><i class="bi bi-star-fill text-warning me-1"></i> 4.9</span>
-                                    <a th:href="@{'/course/' + ${course.id}}" class="btn btn-sm btn-outline-custom">View Details <i class="bi bi-arrow-right ms-1"></i></a>
+                                <div class="text-center">
+                                    <a th:href="@{'/course/' + ${course.id}}" class="btn btn-custom w-100 fw-bold" style="background-color: #5c0d12; color: white;">Register / Take Test</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section 2: Kaun Banega Crorepati Dharma Pariksha -->
+    <section id="kbc-pariksha" style="padding: 80px 0; background: var(--bg-main);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold" style="color: #5c0d12;">Kaun Banega Crorepati Dharma Pariksha (Coming Soon)</h2>
+            </div>
+            
+            <div class="row justify-content-center g-4">
+                <!-- Iterate over kbcPariksha courses -->
+                <div class="col-lg-4 col-md-6" th:each="course : ${kbcPariksha}">
+                    <div class="course-card shadow-sm border-0">
+                        <div class="course-img-wrapper">
+                            <img th:src="${course.imageUrl}" alt="Course Image">
+                        </div>
+                        <div class="course-body d-flex flex-column" style="background-color: var(--surface); height: calc(100% - 220px);">
+                            <h3 class="course-title" style="color: #5c0d12;" th:text="${course.title}">Course Title</h3>
+                            <p class="course-desc" th:text="${course.description}">Course Description</p>
+                            <div class="mt-auto">
+                                <hr style="border-color: rgba(0,0,0,0.1);">
+                                <div class="text-center">
+                                    <a th:href="@{'/course/' + ${course.id}}" class="btn btn-custom w-100 fw-bold" style="background-color: #5c0d12; color: white;">Register / Take Test</a>
                                 </div>
                             </div>
                         </div>

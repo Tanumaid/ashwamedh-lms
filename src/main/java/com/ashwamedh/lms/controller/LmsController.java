@@ -25,35 +25,71 @@ public class LmsController {
 
     @PostConstruct
     public void init() {
-        if(courseRepository.count() == 0) {
-            Course c1 = courseRepository.save(new Course(null, "Digital Ashwamedh Gurukul - Basic", "Foundational knowledge covering human values, basic vedic concepts, and core skills for everyday life.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/ChatGPT-Image-Jul-24-2026-03_51_48-PM.png"));
-            Course c2 = courseRepository.save(new Course(null, "Digital Ashwamedh Gurukul - Advanced", "Deep dive into ancient wisdom blended with modern strategic thinking for true leadership.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/ChatGPT-Image-Aug-25-2026-10_00_25-PM-1.png"));
-            Course c3 = courseRepository.save(new Course(null, "Kaun Banega Crorepati Dharma Pariksha", "Test your knowledge of the great epics and win exciting rewards while learning the path of Dharma.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/Mahabharata_-The-Great-Dharma-Trial.png"));
-            Course c4 = courseRepository.save(new Course(null, "Epic Ramayana Mahapariksha", "A comprehensive study and examination of the glorious Ramayana and its eternal values.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/Epic-Ramayana-Mahapariksha-Poster-1.png"));
+        questionRepository.deleteAll();
+        courseRepository.deleteAll();
 
-            // Seed questions for C1
-            for (int i = 1; i <= 5; i++) {
-                questionRepository.save(new Question(c1, "Basic Course Question " + i + ": What is a core human value?", "Honesty", "Greed", "Anger", "Jealousy", "A"));
-            }
-            // Seed questions for C2
-            for (int i = 1; i <= 5; i++) {
-                questionRepository.save(new Question(c2, "Advanced Course Question " + i + ": Which text outlines strategic leadership?", "Arthashastra", "Kamasutra", "Meghaduta", "Panchatantra", "A"));
-            }
-            // Seed questions for C3
-            for (int i = 1; i <= 5; i++) {
-                questionRepository.save(new Question(c3, "Dharma Pariksha Question " + i + ": Who wrote the Mahabharata?", "Valmiki", "Vyasa", "Tulsidas", "Kalidasa", "B"));
-            }
-            // Seed questions for C4
-            for (int i = 1; i <= 5; i++) {
-                questionRepository.save(new Question(c4, "Ramayana Pariksha Question " + i + ": What was the name of Rama's father?", "Dasharatha", "Janaka", "Ravana", "Sugriva", "A"));
-            }
-        }
+        Course c1 = courseRepository.save(new Course(null, "Mahabharata Pariksha", "Test your knowledge of the great epic Mahabharata.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/Mahabharata_-The-Great-Dharma-Trial.png"));
+        Course c2 = courseRepository.save(new Course(null, "Epic Ramayana Mahapariksha", "A comprehensive study and examination of the glorious Ramayana.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/Epic-Ramayana-Mahapariksha-Poster-1.png"));
+        Course c3 = courseRepository.save(new Course(null, "Sanatan Vedic Knowledge Quiz", "Mix of Vedas, Upanishads, and Indian philosophy.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/ChatGPT-Image-Aug-25-2026-10_00_25-PM-1.png"));
+        Course c4 = courseRepository.save(new Course(null, "Rigveda Mahapariksha", "Explore the ancient Rigveda, its Mandalas, and divine hymns.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/AshwamedhMainLogo-removebg-preview.png"));
+        Course c5 = courseRepository.save(new Course(null, "Jain Dharma Mahapariksha", "Learn the principles of Ahimsa, Anekantavada, and the Tirthankaras.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/AshwamedhMainLogo-removebg-preview.png"));
+        Course c6 = courseRepository.save(new Course(null, "Bauddha Dharma Mahapariksha", "Understand the Four Noble Truths and the teachings of Gautama Buddha.", "https://ashwamedhgurukul.org/wp-content/uploads/2026/08/AshwamedhMainLogo-removebg-preview.png"));
+
+        // Mahabharata
+        questionRepository.save(new Question(c1, "Who was the father of the Pandavas?", "Dhritarashtra", "Pandu", "Shantanu", "Bhishma", "B"));
+        questionRepository.save(new Question(c1, "Who was the eldest of the Kauravas?", "Dushasana", "Vikarna", "Duryodhana", "Yuyutsu", "C"));
+        questionRepository.save(new Question(c1, "Who was the teacher (Guru) of both the Pandavas and Kauravas in warfare?", "Kripacharya", "Dronacharya", "Parashurama", "Bhishma", "B"));
+        questionRepository.save(new Question(c1, "Who was Arjuna's charioteer during the Kurukshetra war?", "Balarama", "Krishna", "Yudhishthira", "Satyaki", "B"));
+        questionRepository.save(new Question(c1, "What was the name of Arjuna's famous bow?", "Sharanga", "Vijaya", "Gandiva", "Pinaka", "C"));
+
+        // Ramayana
+        questionRepository.save(new Question(c2, "Who was the father of Lord Rama?", "Janaka", "Dasharatha", "Vishwamitra", "Vashistha", "B"));
+        questionRepository.save(new Question(c2, "Who was the wife of Lord Rama?", "Kaikeyi", "Mandodari", "Sita", "Urmila", "C"));
+        questionRepository.save(new Question(c2, "Who abducted Sita?", "Kumbhakarna", "Ravana", "Vali", "Maricha", "B"));
+        questionRepository.save(new Question(c2, "Who was Lord Rama's devoted companion who helped him find Sita?", "Hanuman", "Sugriva", "Jambavan", "Angada", "A"));
+        questionRepository.save(new Question(c2, "For how many years was Lord Rama exiled from Ayodhya?", "10 years", "12 years", "14 years", "16 years", "C"));
+
+        // Sanatan / Vedic
+        questionRepository.save(new Question(c3, "How many Vedas are traditionally recognized in Hinduism?", "Two", "Three", "Four", "Five", "C"));
+        questionRepository.save(new Question(c3, "Which Veda is particularly associated with melodies and chants?", "Rigveda", "Samaveda", "Yajurveda", "Atharvaveda", "B"));
+        questionRepository.save(new Question(c3, "Who delivered the teachings of the Bhagavad Gita to Arjuna?", "Bhishma", "Dronacharya", "Lord Krishna", "Yudhishthira", "C"));
+        questionRepository.save(new Question(c3, "The Upanishads are primarily concerned with which of the following?", "Warfare", "Commerce", "Spiritual knowledge", "Agriculture", "C"));
+        questionRepository.save(new Question(c3, "Which of the following is traditionally regarded as the oldest of the four Vedas?", "Samaveda", "Yajurveda", "Atharvaveda", "Rigveda", "D"));
+
+        // Rigveda
+        questionRepository.save(new Question(c4, "How many Mandalas (books) are there in the Rigveda?", "8", "10", "12", "18", "B"));
+        questionRepository.save(new Question(c4, "Which deity is praised in the largest number of hymns in the Rigveda?", "Agni", "Indra", "Varuna", "Surya", "B"));
+        questionRepository.save(new Question(c4, "What is the first word of the Rigveda?", "Soma", "Indra", "Agni", "Om", "C"));
+        questionRepository.save(new Question(c4, "The famous Gayatri Mantra is found in which Veda?", "Rigveda", "Samaveda", "Yajurveda", "Atharvaveda", "A"));
+        questionRepository.save(new Question(c4, "The Purusha Sukta is found in which Mandala of the Rigveda?", "Mandala 1", "Mandala 5", "Mandala 10", "Mandala 12", "C"));
+
+        // Jain Dharma
+        questionRepository.save(new Question(c5, "Who is traditionally regarded as the first Tirthankara in Jainism?", "Mahavira", "Parshvanatha", "Rishabhanatha", "Neminatha", "C"));
+        questionRepository.save(new Question(c5, "Who was the 24th and last Tirthankara of the current Jain tradition?", "Parshvanatha", "Mahavira", "Neminatha", "Ajitanatha", "B"));
+        questionRepository.save(new Question(c5, "Which principle is most closely associated with the Jain teaching of non-violence?", "Aparigraha", "Ahimsa", "Asteya", "Brahmacharya", "B"));
+        questionRepository.save(new Question(c5, "What concept emphasizes that reality can be understood from multiple perspectives?", "Karma", "Moksha", "Anekantavada", "Samvara", "C"));
+        questionRepository.save(new Question(c5, "Where did Lord Mahavira attain Kevala Jnana (omniscience)?", "Under a Sal tree", "At Mount Abu", "At Shatrunjaya", "At Rajgir", "A"));
+
+        // Bauddha Dharma
+        questionRepository.save(new Question(c6, "Who is traditionally regarded as the founder of Buddhism?", "Mahavira", "Gautama Buddha", "Ashoka", "Nagarjuna", "B"));
+        questionRepository.save(new Question(c6, "Where was Gautama Buddha born, according to Buddhist tradition?", "Bodh Gaya", "Sarnath", "Lumbini", "Kushinagar", "C"));
+        questionRepository.save(new Question(c6, "Where did Gautama Buddha attain enlightenment?", "Lumbini", "Bodh Gaya", "Sarnath", "Kushinagar", "B"));
+        questionRepository.save(new Question(c6, "What is the name of Buddha's first sermon?", "Mahaparinibbana", "Dhammacakkappavattana", "Metta", "Mangala", "B"));
+        questionRepository.save(new Question(c6, "Which of the following is NOT one of the Four Noble Truths?", "Truth of suffering", "Origin of suffering", "Cessation of suffering", "Eternal happiness through wealth", "D"));
     }
 
     @GetMapping("/")
     public String home(Model model) {
-        List<Course> courses = courseRepository.findAll();
-        model.addAttribute("courses", courses);
+        List<Course> allCourses = courseRepository.findAll();
+        List<Course> dharmaPariksha = allCourses.stream()
+            .filter(c -> c.getTitle().contains("Rigveda") || c.getTitle().contains("Jain") || c.getTitle().contains("Bauddha"))
+            .toList();
+        List<Course> kbcPariksha = allCourses.stream()
+            .filter(c -> !dharmaPariksha.contains(c))
+            .toList();
+        
+        model.addAttribute("dharmaPariksha", dharmaPariksha);
+        model.addAttribute("kbcPariksha", kbcPariksha);
         return "index";
     }
 
