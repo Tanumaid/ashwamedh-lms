@@ -246,94 +246,136 @@
     </section>
 
     <!-- Footer -->
-    <footer style="background-color: #faead1; padding-top: 60px; border-top: 2px solid #5c0d12; color: #333;">
+    <footer style="background-color: #faead1; padding-top: 70px; border-top: 4px solid #5c0d12; color: #333;">
         <div class="container pb-5">
-            <div class="row g-4">
+            <div class="row g-5">
                 <!-- Col 1: Logo & Donate -->
-                <div class="col-lg-3 text-center">
-                    <img src="https://ashwamedhgurukul.org/wp-content/uploads/2026/08/AshwamedhMainLogo-removebg-preview.png" alt="Ashwamedh Logo" class="img-fluid mb-3" style="max-height: 80px;">
-                    <h6 class="fw-bold mb-4" style="color: #5c0d12; line-height: 1.6;">
+                <div class="col-lg-3 text-center text-lg-start">
+                    <img src="https://ashwamedhgurukul.org/wp-content/uploads/2026/08/AshwamedhMainLogo-removebg-preview.png" alt="Ashwamedh Logo" class="img-fluid mb-4" style="max-height: 100px;">
+                    <h5 class="fw-bold mb-4" style="color: #5c0d12; line-height: 1.5;">
                         Educational Revolution <br>for<br> Human Evolution
-                    </h6>
-                    <a href="#" class="btn rounded-pill px-4 py-2 mb-4 text-white fw-bold shadow" style="background-color: #5c0d12;">Donate Now</a>
+                    </h5>
+                    <a href="#" class="btn w-100 rounded-pill py-2 mb-3 text-white fw-bold shadow-sm" style="background-color: #5c0d12; transition: all 0.3s;">
+                        <i class="bi bi-heart-fill me-2 text-warning"></i> Donate Now
+                    </a>
                     
-                    <div class="mt-2">
-                        <a href="https://wa.me/919552599339" class="text-decoration-none">
-                            <i class="bi bi-whatsapp" style="font-size: 2.5rem; color: #25D366;"></i>
-                            <p class="mt-2 text-dark fw-bold" style="font-size: 0.85rem;">Click on the icon to chat with us!</p>
-                        </a>
-                    </div>
+                    <a href="https://wa.me/919552599339" class="text-decoration-none d-block">
+                        <div class="d-flex align-items-center justify-content-center bg-white rounded-pill p-2 shadow-sm" style="border: 1px solid rgba(37, 211, 102, 0.3);">
+                            <i class="bi bi-whatsapp" style="font-size: 1.8rem; color: #25D366;"></i>
+                            <span class="ms-2 fw-bold text-dark" style="font-size: 0.95rem;">Chat with us!</span>
+                        </div>
+                    </a>
                 </div>
 
                 <!-- Col 2: Quick Links -->
-                <div class="col-lg-3 ps-lg-4">
-                    <h4 class="mb-4 fw-bold" style="color: #5c0d12; font-family: 'Playfair Display', serif;">Quick links</h4>
-                    <ul class="list-unstyled" style="line-height: 2;">
-                        <li><a href="/" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; Home</a></li>
-                        <li><a href="#courses" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; All Courses</a></li>
-                        <li><a href="/dashboard" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; My Dashboard</a></li>
-                        <li><a href="/login" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; Student Login</a></li>
-                        <li><a href="/register" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; Register Now</a></li>
+                <div class="col-lg-2 col-md-6 mt-5 mt-lg-0">
+                    <h4 class="mb-4 fw-bold position-relative" style="color: #5c0d12; font-family: 'Playfair Display', serif;">Quick Links
+                        <span style="position: absolute; left: 0; bottom: -8px; width: 40px; height: 3px; background-color: #d35400; border-radius: 2px;"></span>
+                    </h4>
+                    <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li><a href="/" class="text-decoration-none text-dark fw-bold footer-link"><i class="bi bi-chevron-right small me-1 text-muted"></i> Home</a></li>
+                        <li><a href="/courses" class="text-decoration-none text-dark fw-bold footer-link"><i class="bi bi-chevron-right small me-1 text-muted"></i> Digital Gurukul</a></li>
+                        <li><a href="/dashboard" class="text-decoration-none text-dark fw-bold footer-link"><i class="bi bi-chevron-right small me-1 text-muted"></i> Dashboard</a></li>
+                        <th:block th:if="${session.loggedInUser == null}">
+                            <li><a href="/login" class="text-decoration-none text-dark fw-bold footer-link"><i class="bi bi-chevron-right small me-1 text-muted"></i> Login</a></li>
+                            <li><a href="/register" class="text-decoration-none text-dark fw-bold footer-link"><i class="bi bi-chevron-right small me-1 text-muted"></i> Register</a></li>
+                        </th:block>
                     </ul>
                 </div>
 
                 <!-- Col 3: Legal -->
-                <div class="col-lg-3">
-                    <h4 class="mb-4 fw-bold" style="color: #5c0d12; font-family: 'Playfair Display', serif;">Legal</h4>
-                    <ul class="list-unstyled" style="line-height: 2;">
-                        <li><a href="#" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; Terms and Conditions</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; Privacy Policy</a></li>
-                        <li><a href="#" class="text-decoration-none text-dark fw-bold" style="font-size: 0.9rem;">&bull; Refund Policy</a></li>
+                <div class="col-lg-2 col-md-6 mt-5 mt-lg-0">
+                    <h4 class="mb-4 fw-bold position-relative" style="color: #5c0d12; font-family: 'Playfair Display', serif;">Legal
+                        <span style="position: absolute; left: 0; bottom: -8px; width: 40px; height: 3px; background-color: #d35400; border-radius: 2px;"></span>
+                    </h4>
+                    <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li><a href="#" class="text-decoration-none text-dark fw-bold footer-link"><i class="bi bi-chevron-right small me-1 text-muted"></i> Terms</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark fw-bold footer-link"><i class="bi bi-chevron-right small me-1 text-muted"></i> Privacy</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark fw-bold footer-link"><i class="bi bi-chevron-right small me-1 text-muted"></i> Refunds</a></li>
                     </ul>
                 </div>
 
                 <!-- Col 4: Contact Us -->
-                <div class="col-lg-3">
-                    <h4 class="mb-4 fw-bold" style="color: #5c0d12; font-family: 'Playfair Display', serif;">Contact Us</h4>
-                    <ul class="list-unstyled" style="line-height: 1.8; font-size: 0.85rem;">
-                        <li class="mb-2 fw-bold"><i class="bi bi-telephone-fill me-2" style="color: #5c0d12;"></i>+91 8421214224</li>
-                        <li class="mb-2 fw-bold"><i class="bi bi-telephone-fill me-2" style="color: #5c0d12;"></i>+91 9552599339</li>
-                        <li class="mb-2 fw-bold"><i class="bi bi-telephone-fill me-2" style="color: #5c0d12;"></i>+91 9623199339</li>
-                        <li class="mb-2 fw-bold"><i class="bi bi-telephone-fill me-2" style="color: #5c0d12;"></i>+91 9657399339</li>
-                        <li class="mb-3 fw-bold"><i class="bi bi-telephone-fill me-2" style="color: #5c0d12;"></i>+91 9552599339</li>
-                        
-                        <li class="mb-3 fw-bold"><i class="bi bi-envelope-fill me-2" style="color: #5c0d12;"></i>ashwamedhgurukul@gmail.com</li>
-                        
-                        <li class="d-flex mb-3 fw-bold">
-                            <i class="bi bi-geo-alt-fill me-2 mt-1" style="color: #5c0d12;"></i>
-                            <div>
-                                Jyotishacharya Guruji Prashant Khale's Ashram:<br>
-                                Chaturbhuj Mandir,<br>
-                                Vidya Kund,<br>
-                                near Mani Parvat,<br>
-                                Ayodhya - 224123
+                <div class="col-lg-5 mt-5 mt-lg-0">
+                    <h4 class="mb-4 fw-bold position-relative" style="color: #5c0d12; font-family: 'Playfair Display', serif;">Contact Us
+                        <span style="position: absolute; left: 0; bottom: -8px; width: 40px; height: 3px; background-color: #d35400; border-radius: 2px;"></span>
+                    </h4>
+                    
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <div class="d-flex align-items-center bg-white p-3 rounded-4 shadow-sm h-100">
+                                <i class="bi bi-telephone-fill fs-3 me-3" style="color: #5c0d12;"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1" style="color: #5c0d12;">Phone Lines</h6>
+                                    <p class="mb-0 fw-bold small text-muted" style="line-height: 1.6;">
+                                        +91 8421214224, +91 9552599339, +91 9623199339, +91 9657399339
+                                    </p>
+                                </div>
                             </div>
-                        </li>
+                        </div>
                         
-                        <li class="d-flex fw-bold">
-                            <i class="bi bi-geo-alt-fill me-2 mt-1" style="color: #5c0d12;"></i>
-                            <div>
-                                Ashwamedh Gurukul Head Office Address:<br>
-                                Soba Tower Apt,<br>
-                                1st floor,<br>
-                                A-102/103/104,<br>
-                                Sadashiv Peth<br>
-                                near Poona Hospital,<br>
-                                Pune - 411030
+                        <div class="col-12">
+                            <div class="d-flex align-items-center bg-white p-3 rounded-4 shadow-sm h-100">
+                                <i class="bi bi-envelope-fill fs-3 me-3" style="color: #5c0d12;"></i>
+                                <div>
+                                    <h6 class="fw-bold mb-1" style="color: #5c0d12;">Email</h6>
+                                    <a href="mailto:ashwamedhgurukul@gmail.com" class="text-decoration-none fw-bold small text-muted">ashwamedhgurukul@gmail.com</a>
+                                </div>
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+                        
+                        <div class="col-sm-6">
+                            <div class="d-flex flex-column bg-white p-3 rounded-4 shadow-sm h-100">
+                                <i class="bi bi-geo-alt-fill fs-4 mb-2" style="color: #d35400;"></i>
+                                <h6 class="fw-bold mb-2" style="color: #5c0d12; font-size: 0.9rem;">Ayodhya Ashram</h6>
+                                <p class="mb-0 fw-bold text-muted" style="font-size: 0.75rem; line-height: 1.5;">
+                                    Jyotishacharya Guruji Prashant Khale's Ashram: Chaturbhuj Mandir, Vidya Kund, near Mani Parvat, Ayodhya - 224123
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-6">
+                            <div class="d-flex flex-column bg-white p-3 rounded-4 shadow-sm h-100">
+                                <i class="bi bi-geo-alt-fill fs-4 mb-2" style="color: #d35400;"></i>
+                                <h6 class="fw-bold mb-2" style="color: #5c0d12; font-size: 0.9rem;">Pune Head Office</h6>
+                                <p class="mb-0 fw-bold text-muted" style="font-size: 0.75rem; line-height: 1.5;">
+                                    Soba Tower Apt, 1st floor, A-102/103/104, Sadashiv Peth, near Poona Hospital, Pune - 411030
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         
         <!-- Bottom Bar -->
-        <div style="background-color: #5c0d12; padding: 15px 0;">
-            <div class="container text-center">
-                <p class="mb-0 text-white" style="font-size: 0.9rem;">Copyright 2026 @ Ashwamedh Gurukul Foundation</p>
+        <div style="background-color: #4a0a0e; padding: 20px 0;">
+            <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <p class="mb-0 text-white-50 small">&copy; 2026 Ashwamedh Gurukul Foundation. All Rights Reserved.</p>
+                <div class="d-flex gap-3 mt-3 mt-md-0">
+                    <a href="#" class="text-white-50 text-decoration-none hover-white"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white-50 text-decoration-none hover-white"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-white-50 text-decoration-none hover-white"><i class="bi bi-youtube"></i></a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <style>
+        .footer-link {
+            transition: color 0.3s ease, padding-left 0.3s ease;
+        }
+        .footer-link:hover {
+            color: #d35400 !important;
+            padding-left: 5px;
+        }
+        .hover-white {
+            transition: color 0.3s ease;
+        }
+        .hover-white:hover {
+            color: white !important;
+        }
+    </style>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
